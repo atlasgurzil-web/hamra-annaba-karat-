@@ -1,0 +1,13 @@
+# Club Hamra Annaba — Section Karaté-Do
+> Fondé en 1944, le Club Omnisports Hamra Annaba (Section Karaté-Do) forme l'élite des karatékas d'Annaba à travers 4 dojos d'entraînement, encadrés par des maîtres d'État certifiés.
+
+## Navigation Principale
+- [Accueil](https://hamra-karate.atlasforge.space/): Présentation du club, inscription enfants et adultes, horaires et dojos.
+- [Dojos & Salles](https://hamra-karate.atlasforge.space/#dojos): Localisation des 4 dojos à Annaba (Sidi Brahim, Centre-Ville, Plaine Ouest, Seraïdi).
+- [Horaires & Tarifs](https://hamra-karate.atlasforge.space/#tarifs): Formules d'adhésion annuelles et mensuelles pour poussins, benjamins, minimes, cadets, juniors et seniors.
+- [Contact & Inscription](https://hamra-karate.atlasforge.space/#contact): Formulaire de pré-inscription directe et contact WhatsApp/Téléphone.
+
+## À Propos
+- Organisation: Club Omnisports Hamra Annaba
+- Discipline: Karaté Shotokan, Kata et Kumité
+- Ville: Annaba, Algérie
