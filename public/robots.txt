@@ -1,0 +1,9 @@
+# Robots.txt - Club Hamra Annaba (Section Karaté-Do)
+User-agent: *
+Allow: /
+
+# Host
+Host: https://hamra-karate.atlasforge.space
+
+# Sitemap
+Sitemap: https://hamra-karate.atlasforge.space/sitemap.xml

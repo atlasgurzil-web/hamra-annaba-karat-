@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://hamra-karate.atlasforge.space/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://hamra-karate.atlasforge.space/karate-kids-group.jpg</image:loc>
+      <image:title>Section Karaté-Do Hamra Annaba - Groupe Enfants</image:title>
+      <image:caption>Entraînement des jeunes karatékas au Club Omnisports Hamra Annaba</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://hamra-karate.atlasforge.space/hamra-annaba-logo.png</image:loc>
+      <image:title>Logo Officiel Club Hamra Annaba 1944</image:title>
+    </image:image>
+  </url>
+</urlset>
