@@ -39,6 +39,8 @@ export const AgeCategoriesSection: React.FC<AgeCategoriesSectionProps> = ({ onSe
                 <img
                   src={category.image}
                   alt={category.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
                 

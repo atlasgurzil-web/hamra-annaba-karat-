@@ -299,3 +299,18 @@ export const FAQ_ITEMS = [
     answer: 'Remplissez d’abord le formulaire en ligne sur ce site pour réserver votre place. Vous recevrez instantanément votre numéro de dossier. Il vous suffira ensuite de déposer au dojo l’extrait de naissance, les 2 photos, le certificat médical et l’autorisation parentale signée.',
   },
 ];
+
+export const CLUB_CONTACT = {
+  director: 'Mr Ait Amar',
+  directorName: 'Mr Ait Amar',
+  directorTitle: 'Responsable de la Section Karaté-Do',
+  phone: '0670 72 32 11',
+  phoneDisplay: '0670 72 32 11',
+  phoneRaw: '0670723211',
+  phoneHref: 'tel:0670723211',
+  phoneInternational: '+213670723211',
+  whatsappRaw: '213670723211',
+  email: 'contact@hamra-annaba.dz',
+  city: 'Annaba, Algérie',
+};
+

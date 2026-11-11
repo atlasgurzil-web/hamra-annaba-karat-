@@ -14,7 +14,7 @@ import {
   RotateCcw,
   Award
 } from 'lucide-react';
-import { HAMRA_DOJOS } from '../../data/karateData';
+import { HAMRA_DOJOS, CLUB_CONTACT } from '../../data/karateData';
 
 export interface RegistrationSectionRef {
   setDojo: (dojoId: string) => void;
@@ -161,7 +161,7 @@ export const RegistrationSection = forwardRef<RegistrationSectionRef, Registrati
     const activeDojoObj = HAMRA_DOJOS.find((d) => d.id === selectedDojo) || HAMRA_DOJOS[0];
 
     const whatsappMessage = encodeURIComponent(
-      `Bonjour Club Hamra Annaba (Section Karaté-Do) !\n\nJe confirme la pré-inscription de mon enfant :\n` +
+      `Bonjour Mr Ait Amar (Club Hamra Annaba - Section Karaté-Do) !\n\nJe confirme la pré-inscription de mon enfant :\n` +
       `• N° Dossier : ${dossierNumber}\n` +
       `• Élève : ${studentLastName.toUpperCase()} ${studentFirstName} (${calculatedAge || 'N/A'} ans)\n` +
       `• Salle : ${activeDojoObj.name} (${activeDojoObj.quarter})\n` +
@@ -251,10 +251,11 @@ export const RegistrationSection = forwardRef<RegistrationSectionRef, Registrati
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                        <label htmlFor="student-lastname" className="block text-xs font-semibold text-neutral-700 mb-1">
                           Nom de l'élève <span className="text-[#DC2626]">*</span>
                         </label>
                         <input
+                          id="student-lastname"
                           type="text"
                           required
                           value={studentLastName}
@@ -265,10 +266,11 @@ export const RegistrationSection = forwardRef<RegistrationSectionRef, Registrati
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                        <label htmlFor="student-firstname" className="block text-xs font-semibold text-neutral-700 mb-1">
                           Prénom de l'élève <span className="text-[#DC2626]">*</span>
                         </label>
                         <input
+                          id="student-firstname"
                           type="text"
                           required
                           value={studentFirstName}
@@ -279,10 +281,11 @@ export const RegistrationSection = forwardRef<RegistrationSectionRef, Registrati
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                        <label htmlFor="student-birthdate" className="block text-xs font-semibold text-neutral-700 mb-1">
                           Date de naissance <span className="text-[#DC2626]">*</span>
                         </label>
                         <input
+                          id="student-birthdate"
                           type="date"
                           required
                           value={birthDate}
@@ -406,10 +409,11 @@ export const RegistrationSection = forwardRef<RegistrationSectionRef, Registrati
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                        <label htmlFor="parent-fullname" className="block text-xs font-semibold text-neutral-700 mb-1">
                           Nom complet du Père / Mère / Tuteur <span className="text-[#DC2626]">*</span>
                         </label>
                         <input
+                          id="parent-fullname"
                           type="text"
                           required
                           value={parentFullName}
@@ -420,10 +424,11 @@ export const RegistrationSection = forwardRef<RegistrationSectionRef, Registrati
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                        <label htmlFor="parent-profession" className="block text-xs font-semibold text-neutral-700 mb-1">
                           Profession / Travail du parent <span className="text-[#DC2626]">*</span>
                         </label>
                         <input
+                          id="parent-profession"
                           type="text"
                           required
                           value={parentProfession}
@@ -434,10 +439,11 @@ export const RegistrationSection = forwardRef<RegistrationSectionRef, Registrati
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                        <label htmlFor="parent-phone" className="block text-xs font-semibold text-neutral-700 mb-1">
                           Numéro de téléphone <span className="text-[#DC2626]">*</span>
                         </label>
                         <input
+                          id="parent-phone"
                           type="tel"
                           required
                           value={parentPhone}
@@ -448,10 +454,11 @@ export const RegistrationSection = forwardRef<RegistrationSectionRef, Registrati
                       </div>
 
                       <div>
-                        <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                        <label htmlFor="parent-email" className="block text-xs font-semibold text-neutral-700 mb-1">
                           Adresse e-mail <span className="text-[#DC2626]">*</span>
                         </label>
                         <input
+                          id="parent-email"
                           type="email"
                           required
                           value={parentEmail}
@@ -513,7 +520,7 @@ export const RegistrationSection = forwardRef<RegistrationSectionRef, Registrati
                       type="submit"
                       className="w-full py-4 rounded-xl bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-xs transition-colors"
                     >
-                      <span>Valider la Pré-Inscription (2 000 DA/mois)</span>
+                      <span>Valider la Pré-Inscription</span>
                     </button>
                     <p className="text-center text-xs text-neutral-500 mt-2">
                       Récépissé officiel et numéro de dossier générés instantanément. Aucun paiement en ligne requis aujourd'hui.
@@ -561,7 +568,7 @@ export const RegistrationSection = forwardRef<RegistrationSectionRef, Registrati
                           Club Omnisports Hamra Annaba • Section Karaté-Do
                         </div>
                         <div className="text-[11px] text-neutral-500">
-                          Récépissé de Pré-Inscription • Saison Sportive 2026/2027
+                          Récépissé de Pré-Inscription • Saison Sportive 2026/2027 • Responsable : {CLUB_CONTACT.director} ({CLUB_CONTACT.phone})
                         </div>
                       </div>
                     </div>
@@ -635,13 +642,13 @@ export const RegistrationSection = forwardRef<RegistrationSectionRef, Registrati
                 {/* Actions */}
                 <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
                   <a
-                    href={`https://wa.me/?text=${whatsappMessage}`}
+                    href={`https://wa.me/${CLUB_CONTACT.whatsappRaw}?text=${whatsappMessage}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full sm:flex-1 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-black font-bold text-sm flex items-center justify-center gap-2 shadow-xs transition-colors"
                   >
                     <MessageCircle className="w-5 h-5" />
-                    <span>Confirmer sur WhatsApp avec le Club</span>
+                    <span>Confirmer sur WhatsApp ({CLUB_CONTACT.director})</span>
                   </a>
 
                   <button

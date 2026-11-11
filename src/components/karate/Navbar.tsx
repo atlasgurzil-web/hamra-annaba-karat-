@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Phone, Shield, Menu, X, ArrowRight } from 'lucide-react';
+import { CLUB_CONTACT } from '../../data/karateData';
 
 interface NavbarProps {
   onOpenRegister: (dojoId?: string) => void;
@@ -12,7 +13,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 15);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -32,30 +33,30 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-neutral-200 shadow-xs py-3'
-          : 'bg-white/80 backdrop-blur-sm border-b border-neutral-200/60 py-4'
+          ? 'bg-white/95 backdrop-blur-md border-b border-neutral-200 shadow-xs py-2 sm:py-2.5'
+          : 'bg-white/90 backdrop-blur-sm border-b border-neutral-200/60 py-2 sm:py-3'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo & Identity */}
-          <a href="#" className="flex items-center gap-3 group">
+          {/* Logo & Identity (Compact on mobile) */}
+          <a href="#" className="flex items-center gap-2 sm:gap-3 group">
             <img
               src="/hamra-annaba-logo.png"
               alt="Logo Club Hamra Annaba"
-              className="w-10 h-10 sm:w-11 sm:h-11 object-contain transition-transform duration-200 group-hover:scale-105"
+              className="w-8 h-8 sm:w-10 sm:h-10 object-contain transition-transform duration-200 group-hover:scale-105"
             />
             <div className="flex flex-col">
-              <div className="flex items-center gap-2">
-                <span className="font-extrabold text-base tracking-tight text-neutral-900 uppercase" style={{ fontFamily: 'var(--font-syne)' }}>
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="font-extrabold text-sm sm:text-base tracking-tight text-neutral-900 uppercase leading-none" style={{ fontFamily: 'var(--font-syne)' }}>
                   HAMRA <span className="text-[#DC2626]">ANNABA</span>
                 </span>
-                <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-red-50 text-red-700 border border-red-200">
-                  Fondé en 1944
+                <span className="text-[9px] sm:text-[10px] font-semibold px-1.5 py-0.2 rounded bg-red-50 text-red-700 border border-red-200">
+                  1944
                 </span>
               </div>
-              <span className="text-[11px] text-neutral-500 font-medium tracking-wide flex items-center gap-1">
-                <Shield className="w-3 h-3 text-[#DC2626]" />
+              <span className="text-[10px] sm:text-[11px] text-neutral-500 font-medium tracking-wide flex items-center gap-1 mt-0.5">
+                <Shield className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#DC2626]" />
                 Section Karaté-Do • حمراء عنابة
               </span>
             </div>
@@ -74,37 +75,41 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
             ))}
           </nav>
 
-          {/* Action CTAs */}
+          {/* Action CTAs (Cleaned, no price badge) */}
           <div className="hidden sm:flex items-center gap-3">
             <a
-              href="tel:038000000"
+              href={`tel:${CLUB_CONTACT.phoneRaw}`}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-neutral-700 bg-neutral-100 hover:bg-neutral-200 transition-colors"
+              title={`Appeler le secrétariat (${CLUB_CONTACT.directorName})`}
             >
-              <Phone className="w-3.5 h-3.5 text-neutral-500" />
-              <span>Annaba</span>
+              <Phone className="w-3.5 h-3.5 text-[#DC2626]" />
+              <span>{CLUB_CONTACT.phoneDisplay} • {CLUB_CONTACT.directorName}</span>
             </a>
 
             <button
               onClick={() => onOpenRegister()}
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#DC2626] hover:bg-[#B91C1C] text-white text-xs font-bold shadow-xs transition-colors"
             >
-              <span>Inscription • 2 000 DA/m</span>
+              <span>Pré-inscription</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
 
-          {/* Mobile Hamburger */}
-          <div className="flex sm:hidden items-center gap-2">
-            <button
-              onClick={() => onOpenRegister()}
-              className="px-2.5 py-1.5 rounded-md bg-[#DC2626] text-white text-xs font-bold"
+          {/* Mobile Right Controls: Phone Icon + Hamburger (Clean, No 2000 DA) */}
+          <div className="flex sm:hidden items-center gap-1.5">
+            <a
+              href={`tel:${CLUB_CONTACT.phoneRaw}`}
+              className="p-2 rounded-lg bg-red-50 text-[#DC2626] border border-red-200 flex items-center justify-center"
+              aria-label={`Appeler ${CLUB_CONTACT.directorName}`}
             >
-              2 000 DA
-            </button>
+              <Phone className="w-4 h-4" />
+            </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg bg-neutral-100 border border-neutral-200 text-neutral-700 hover:text-neutral-900"
-              aria-label="Menu"
+              aria-label="Menu de navigation"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -116,10 +121,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
+            id="mobile-navigation"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-b border-neutral-200 px-4 pt-3 pb-6 space-y-3 shadow-lg"
+            className="lg:hidden bg-white border-b border-neutral-200 px-4 pt-3 pb-5 space-y-3 shadow-lg"
           >
             <div className="grid grid-cols-2 gap-2 pt-1">
               {navLinks.map((link) => (
@@ -135,17 +141,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
             </div>
 
             <div className="pt-3 border-t border-neutral-100 flex flex-col gap-2">
+              <a
+                href={`tel:${CLUB_CONTACT.phoneRaw}`}
+                className="w-full py-2.5 px-3 rounded-lg bg-neutral-100 text-neutral-800 font-semibold text-xs flex items-center justify-center gap-2 border border-neutral-200"
+              >
+                <Phone className="w-4 h-4 text-[#DC2626]" />
+                <span>{CLUB_CONTACT.directorName} : {CLUB_CONTACT.phoneDisplay}</span>
+              </a>
+
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenRegister();
                 }}
-                className="w-full py-3 rounded-lg bg-[#DC2626] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-xs"
+                className="w-full py-2.5 rounded-lg bg-[#DC2626] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-xs"
               >
-                <span>Rejoindre la section (2 000 DA/mois)</span>
+                <span>Accéder au formulaire de pré-inscription</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
-              <div className="text-center text-[11px] text-neutral-500">
+              <div className="text-center text-[10px] text-neutral-500">
                 4 Dojos à Annaba : Chabou • Pont Blanc • El Bouni • Plaine Ouest
               </div>
             </div>

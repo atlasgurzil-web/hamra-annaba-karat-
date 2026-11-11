@@ -82,6 +82,8 @@ export const PhotoGallery: React.FC = () => {
               <img
                 src={photo.src}
                 alt={photo.title}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-300"
               />
 

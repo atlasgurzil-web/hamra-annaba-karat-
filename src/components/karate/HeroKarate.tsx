@@ -104,7 +104,7 @@ export const HeroKarate: React.FC<HeroKarateProps> = ({ onOpenRegister, onExplor
                 onClick={() => onOpenRegister()}
                 className="px-6 py-3.5 rounded-xl bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-sm transition-colors"
               >
-                <span>Inscrire mon enfant (2 000 DA)</span>
+                <span>Inscrire mon enfant</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 
@@ -148,6 +148,7 @@ export const HeroKarate: React.FC<HeroKarateProps> = ({ onOpenRegister, onExplor
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.25 }}
+                    decoding="async"
                     className="w-full h-full object-cover object-center"
                   />
                 </AnimatePresence>
@@ -193,6 +194,8 @@ export const HeroKarate: React.FC<HeroKarateProps> = ({ onOpenRegister, onExplor
                       <img
                         src={slide.image}
                         alt={slide.tag}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover"
                       />
                     </button>

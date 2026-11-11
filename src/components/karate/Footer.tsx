@@ -1,6 +1,6 @@
 import React from 'react';
-import { Shield, MapPin, Phone, Mail, Award, ArrowUp } from 'lucide-react';
-import { HAMRA_DOJOS } from '../../data/karateData';
+import { Shield, MapPin, Phone, Mail, Award, ArrowUp, MessageCircle } from 'lucide-react';
+import { HAMRA_DOJOS, CLUB_CONTACT } from '../../data/karateData';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -17,6 +17,8 @@ export const Footer: React.FC = () => {
               <img
                 src="/hamra-annaba-logo.png"
                 alt="Logo Club Hamra Annaba"
+                loading="lazy"
+                decoding="async"
                 className="w-11 h-11 object-contain"
               />
               <div>
@@ -58,7 +60,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-900 flex items-center gap-1.5">
               <Award className="w-3.5 h-3.5 text-[#DC2626]" />
-              Adhésion & Contact
+              Responsable & Contact
             </h4>
             <div className="space-y-2 text-xs">
               <div className="p-3 rounded-xl bg-red-50 border border-red-200">
@@ -67,16 +69,37 @@ export const Footer: React.FC = () => {
                   2 000 DA / mois
                 </span>
               </div>
-              <div className="text-neutral-600 leading-relaxed">
-                Extrait de naissance, 2 photos d'identité, certificat médical et autorisation parentale requis.
-              </div>
-              <div className="pt-2 flex flex-col gap-1.5 text-neutral-600">
+              <div className="p-3 rounded-xl bg-neutral-50 border border-neutral-200 space-y-1.5">
+                <div className="text-[10px] uppercase font-bold text-neutral-500">Responsable de section</div>
+                <div className="text-xs font-bold text-neutral-900">{CLUB_CONTACT.director}</div>
+                <div className="flex items-center gap-2 pt-1">
+                  <Phone className="w-3.5 h-3.5 text-[#DC2626]" />
+                  <a
+                    href={CLUB_CONTACT.phoneHref}
+                    className="font-bold text-neutral-900 hover:text-[#DC2626] transition-colors"
+                  >
+                    {CLUB_CONTACT.phone}
+                  </a>
+                </div>
                 <div className="flex items-center gap-2">
-                  <Phone className="w-3.5 h-3.5 text-neutral-500" />
+                  <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
+                  <a
+                    href={`https://wa.me/${CLUB_CONTACT.whatsappRaw}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-neutral-700 hover:text-[#25D366] transition-colors"
+                  >
+                    WhatsApp direct
+                  </a>
+                </div>
+              </div>
+              <div className="pt-1 flex flex-col gap-1.5 text-neutral-600">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-3.5 h-3.5 text-neutral-400" />
                   <span>Annaba, Algérie</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Mail className="w-3.5 h-3.5 text-neutral-500" />
+                  <Mail className="w-3.5 h-3.5 text-neutral-400" />
                   <span>contact@hamra-annaba.dz</span>
                 </div>
               </div>
@@ -91,7 +114,7 @@ export const Footer: React.FC = () => {
               © 2026 Club Omnisports Hamra Annaba (Section Karaté-Do). Tous droits réservés.
             </p>
             <p className="text-[10px] text-neutral-400 mt-0.5">
-              Site officiel hébergé sur Vercel • Conception épurée selon les normes de l'Unslop.
+              Site officiel hébergé sur Vercel • Direction : {CLUB_CONTACT.director} ({CLUB_CONTACT.phone})
             </p>
           </div>
 

@@ -31,12 +31,16 @@ export const ClubHeritage: React.FC = () => {
               <img
                 src="/karate-kids-group.jpg"
                 alt="Jeunes karatékas de Hamra Annaba"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-80 object-cover object-center"
               />
               <div className="p-4 bg-white border-t border-neutral-100 flex items-center gap-3">
                 <img
                   src="/hamra-annaba-logo.png"
                   alt="Logo Hamra Annaba"
+                  loading="lazy"
+                  decoding="async"
                   className="w-10 h-10 object-contain shrink-0"
                 />
                 <div>
