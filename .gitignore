@@ -26,3 +26,6 @@ dist-ssr
 # Temporary media
 *.mp4
 check_*.png
+
+.vercel
+.env*
